@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   root 'home#land'
+
+  get 'translate' => "home#translate", as: :translate
+
   resources :books, only: [:index, :new, :create, :show, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

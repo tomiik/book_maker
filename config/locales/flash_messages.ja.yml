@@ -1,0 +1,7 @@
+ja:
+  flash_messages:
+    books:
+      creation_success: "本の作成に成功しました"
+      creation_failure: "本の作成に失敗しました。"
+      deletion_success: "本の削除に成功しました"
+      deletion_failure: "本の削除に失敗しました。正しいタイトルを入力してください。"

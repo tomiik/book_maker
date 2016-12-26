@@ -1,0 +1,7 @@
+en:
+  flash_messages:
+    books:
+      creation_success: "Book created successfully"
+      creation_failure: "Book creation failed, as you entered incorrect title"
+      deletion_success: "Book deleted successfully"
+      deletion_failure: "Book deleted failed, as you entered incorrect title"

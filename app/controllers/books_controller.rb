@@ -12,25 +12,25 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
+      flash[:notice] = I18n.t('flash_messages.books.creation_success')
       redirect_to book_path(@book)
     else
+      flash[:notice] = I18n.t('flash_messages.books.creation_failure')
       render :new
     end
   end
 
   def show
-    flash.now[:notice] = "This is a success flash message"
-    flash.now[:error] = "This is a danger flash message"
-    #flash.now[:warning] = "This is a warning flash message"
-    flash.now[:info] = "This is a info flash message"
   end
 
   def destroy
     if params[:title_confirmation].downcase == @book.title.downcase
       @book.destroy
-      redirect_to books_path, success: "Book titled '#{@book.title}' is successfully deleted"
+      flash[:notice] = I18n.t('flash_messages.books.deletion_success')
+      redirect_to books_path
     else
-      redirect_to book_path(@book), danger: "Book not deleted, as you did not enter the correct book title."
+      flash[:error] = I18n.t('flash_messages.books.deletion_failure')
+      redirect_to book_path(@book)
     end
   end
 
