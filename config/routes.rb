@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
   root 'home#land'
 
   get 'translate' => "home#translate", as: :translate
 
-  resources :books
+  resources :books do
+    resources :chapters, only: [:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
