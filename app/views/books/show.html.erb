@@ -4,6 +4,7 @@
             data: {
               toggle: "modal",
               target: "#delete-confirmation-modal"} %>
+<%= link_to "Edit", edit_book_path(@book), class: "btn btn-primary pull-right"%>
 <h1><%= @book.title %></h1>
 
 <!-- Delete Confirmation Modal -->

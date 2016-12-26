@@ -3,5 +3,7 @@ ja:
     books:
       creation_success: "本の作成に成功しました"
       creation_failure: "本の作成に失敗しました。"
+      update_success: "本の更新に成功しました"
+      update_failure: "本の更新に失敗しました。"
       deletion_success: "本の削除に成功しました"
       deletion_failure: "本の削除に失敗しました。正しいタイトルを入力してください。"
