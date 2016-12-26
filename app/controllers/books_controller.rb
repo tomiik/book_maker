@@ -19,6 +19,10 @@ class BooksController < ApplicationController
   end
 
   def show
+    flash.now[:notice] = "This is a success flash message"
+    flash.now[:error] = "This is a danger flash message"
+    #flash.now[:warning] = "This is a warning flash message"
+    flash.now[:info] = "This is a info flash message"
   end
 
   def destroy
