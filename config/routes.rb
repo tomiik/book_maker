@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'translate' => "home#translate", as: :translate
 
   resources :books do
-    resources :chapters, only: [:create, :edit, :update, :destroy]
+    resources :chapters, only: [:create, :edit, :update, :destroy] do
+      resources :sections, only: [:destroy]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
