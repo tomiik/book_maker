@@ -2,5 +2,5 @@
   <%= f.input :title %>
   <%= f.input :notes %>
   <%= f.submit class: "btn btn-primary btn-sm" %>
-  <%= link_to("cancel", "#", id: "cancel-new-chapter-form") if chapter.new_record? %>
+  <%= link_to("cancel", nil, id: "cancel-new-chapter-form") if chapter.new_record? %>
 <% end %>
