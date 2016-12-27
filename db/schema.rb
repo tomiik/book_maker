@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161227131506) do
   end
 
   add_index "chapters", ["book_id"], name: "index_chapters_on_book_id"
+  add_index "chapters", ["position"], name: "index_chapters_on_position"
 
   create_table "sections", force: :cascade do |t|
     t.string   "title"
