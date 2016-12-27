@@ -7,3 +7,5 @@ en:
       update_failure: "Book updation failed, as you entered incorrect title"
       deletion_success: "Book deleted successfully"
       deletion_failure: "Book deleted failed, as you entered incorrect title"
+    sections:
+      creation_failure: "Section creations failed."
