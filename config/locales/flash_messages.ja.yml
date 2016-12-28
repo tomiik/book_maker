@@ -7,5 +7,7 @@ ja:
       update_failure: "本の更新に失敗しました。"
       deletion_success: "本の削除に成功しました"
       deletion_failure: "本の削除に失敗しました。正しいタイトルを入力してください。"
+    chapters:
+      deletion_failure: "セクションを削除しました。"      
     sections:
       creation_failure: "セクションの作成に失敗しました。"
