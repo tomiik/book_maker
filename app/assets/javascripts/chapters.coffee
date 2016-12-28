@@ -22,6 +22,6 @@ readyC = ->
 
 $(document).ready(readyC)
 
-$(document).on 'ready page:load', ->
+$(document).on 'readyC page:load', ->
 $(document).on('page:load', readyC)
 $(document).on('page:change', readyC)

@@ -1,17 +1,17 @@
 ChapterSorter =
   orderedChapterIds: ->
-    JSON.stringify
-    $('#chapters-list').sortable('toArray').map (eleId) ->
+    JSON.stringify $('#chapters-list').sortable('toArray').map (eleId) ->
       eleId.split("_")[1]
 
   saveNewSortOrder: ->
     console.log(JSON.stringify(ChapterSorter.orderedChapterIds()))
     $.ajax
       method: "PUT"
-      url: "/books/#{$('#book')[0].dataset.bookId}/chapters/sort",
+      url: "/books/#{$('#book')[0].dataset.bookId}",
       dataType: "script"
       data:
-        chapter_ids: JSON.stringify(ChapterSorter.orderedChapterIds())      
+        book:
+          sorted_chapter_ids: ChapterSorter.orderedChapterIds()
 
 
   init: ->
@@ -24,20 +24,18 @@ ChapterSorter =
         ChapterSorter.saveNewSortOrder()
 
 
-ready = ->
+readyB = ->
   console.log("ready")
   $('#book #sidebar #chapters-list .chapter .chapter-title').click (ev)->
     ev.preventDefault()
     $(@).parents('.chapter').toggleClass('expand')
 
-  $('#book #sidebar #chapters-list .chapter .chapter-title').click (ev)->
-    ev.preventDefault()
-    $(@).parents('.chapter').toggleClass('expand')
 
   ChapterSorter.init()
 
 
-$(document).ready(ready)
+$(document).ready(readyB)
 
-$(document).on('page:load', ready)
-$(document).on('page:change', ready)
+$(document).on 'readyB page:load', ->
+$(document).on('page:load', readyB)
+$(document).on('page:change', readyB)

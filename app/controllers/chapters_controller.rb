@@ -12,19 +12,6 @@ class ChaptersController < ApplicationController
 
   end
 
-  def sort
-    ordered_chapter_ids = JSON.parse(params[:chapter_ids])
-    @grouped_chapters = @book.chapters.where(id: ordered_chapter_ids).group_by(&:id)
-    index_no = 1
-    ordered_chapter_ids.each do |chapter_id|
-      chapter_id = chapter_id.to_i
-      chapter = @grouped_chapters[chapter_id][0]
-      chapter.update_attribute(:position, index_no)
-      index_no += 1
-    end
-    render nothing: true
-  end
-
   def update
     @chapter.update_attributes(chapter_params)
     @chapter.reload unless @chapter.valid?

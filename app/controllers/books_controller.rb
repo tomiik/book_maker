@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :fetch_book, only: [:show, :destroy, :edit]
+  before_action :fetch_book, only: [:show, :destroy, :edit, :update]
 
   def index
     @books = Book.all
@@ -46,8 +46,12 @@ class BooksController < ApplicationController
 
   def update
     if @book.update_attributes(book_params)
-      flash[:notice] = I18n.t('flash_messages.books.update_success')
-      redirect_to book_path(@book)
+      if params[:book][:sorted_chapter_ids]
+        render nothing: true
+      else
+        flash[:notice] = I18n.t('flash_messages.books.update_success')
+        redirect_to book_path(@book)
+      end
     else
       flash[:error] = I18n.t('flash_messages.books.update_failure')
       render :edit
@@ -56,7 +60,7 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:title, :notes)
+      params.require(:book).permit(:title, :notes, :sorted_chapter_ids)
     end
 
     def fetch_book
